@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Words</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:Arial;
+    background:linear-gradient(to right,#00c6ff,#0072ff);
+    color:white;
+}
+
+h1{
+    font-size:40px;
+}
+
+.word-box{
+    font-size:35px;
+    margin:20px;
+    padding:20px;
+    background:white;
+    color:black;
+    border-radius:20px;
+    display:inline-block;
+    width:250px;
+    box-shadow:0 8px #555;
+    cursor:pointer;
+}
+
+.word-box:active{
+    box-shadow:0 4px #333;
+    transform:translateY(4px);
+}
+
+.btn{
+    display:block;
+    margin:40px auto;
+    padding:15px 30px;
+    font-size:20px;
+    background:white;
+    color:black;
+    border-radius:15px;
+    text-decoration:none;
+    width:200px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>A to Z Words</h1>
+
+<div id="words"></div>
+
+<a href="index.html" class="btn">⬅ Back Home</a>
+
+<script>
+
+const wordList = [
+"A for Apple",
+"B for Ball",
+"C for Cat",
+"D for Dog",
+"E for Elephant",
+"F for Fish",
+"G for Goat",
+"H for Hen",
+"I for Ice Cream",
+"J for Joker",
+"K for Kite",
+"L for Lion",
+"M for Monkey",
+"N for Nest",
+"O for Orange",
+"P for Parrot",
+"Q for Queen",
+"R for Rabbit",
+"S for Sun",
+"T for Tiger",
+"U for Umbrella",
+"V for Van",
+"W for Watch",
+"X for Xylophone",
+"Y for Yak",
+"Z for Zebra"
+];
+
+function speakWord(text){
+    let audio = new Audio("https://translate.google.com/translate_tts?ie=UTF-8&q="
+    + text +
+    "&tl=en&client=tw-ob");
+    audio.play();
+}
+
+let container = document.getElementById("words");
+
+wordList.forEach(function(word){
+    let div = document.createElement("div");
+    div.className="word-box";
+    div.innerText=word;
+    div.onclick=function(){
+        speakWord(word);
+    };
+    container.appendChild(div);
+});
+
+</script>
+
+</body>
+</html>

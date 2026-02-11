@@ -1,0 +1,21 @@
+<script>
+function playSound(letter){
+    let audio = new Audio("https://translate.google.com/translate_tts?ie=UTF-8&q="
+    + letter +
+    "&tl=en&client=tw-ob");
+    audio.play();
+}
+
+let container = document.getElementById("letters");
+
+for(let i=65;i<=90;i++){
+    let letter = String.fromCharCode(i);
+    let div = document.createElement("div");
+    div.className="letter";
+    div.innerText=letter;
+    div.onclick=function(){
+        playSound(letter);
+    };
+    container.appendChild(div);
+}
+</script>
